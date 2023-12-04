@@ -1,0 +1,32 @@
+$primary-color: #1D4A5E;
+
+.navbar {
+  width: 1400px;
+  margin: 20px 0;
+}
+.navbar-logo {
+  font-size: 20px;
+}
+
+.navbar .mat-toolbar.mat-primary {
+  background-color: $primary-color;
+}
+
+.mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.btn-group {
+	display: flex;
+  gap: 8px;
+}
+
+button {
+  font-size: 16px;
+}
+
+button .home-icon, button.message-icon, button .clear-icon {
+  font-size: 1.8rem;
+  height: 1.8rem;
+  width: 1.8rem;
+}
