@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef  } from '@angular/material/dialog';
 
-import { IMessage } from "src/app/interfaces/message.interface";
+import { IMessage } from "src/app/message/interfaces/message.interface";
 
 @Component({
   selector: 'app-message-add-dialog',

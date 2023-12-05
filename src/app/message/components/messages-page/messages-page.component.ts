@@ -9,10 +9,10 @@ import { PageEvent, MatPaginator } from '@angular/material/paginator';
 import { PaginationService } from 'src/app/services/pagination.service';
 import { MessageAddDialogComponent } from '../message-add-dialog/message-add-dialog.component';
 import { MessageDeleteDialogComponent } from '../message-delete-dialog/message-delete-dialog.component';
-import { IMessage } from "src/app/interfaces/message.interface";
-import { MessageState } from "src/app/store/messages/reducers/message.reducer";
-import { addMessage, loadMessages, deleteMessage } from 'src/app/store/messages/actions/message.actions';
-import { selectMessages, selectMessageLoading } from 'src/app/store/messages/selectors/message.selectors';
+import { IMessage } from "src/app/message/interfaces/message.interface";
+import { MessageState } from "src/app/message/store/messages/reducers/message.reducer";
+import { addMessage, loadMessages, deleteMessage } from 'src/app/message/store/messages/actions/message.actions';
+import { selectMessages, selectMessageLoading } from 'src/app/message/store/messages/selectors/message.selectors';
 
 @Component({
   selector: 'app-messages-page',

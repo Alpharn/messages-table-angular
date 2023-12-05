@@ -5,9 +5,9 @@ import { catchError, map, switchMap, of, mergeMap, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import * as MessageActions from '../actions/message.actions';
-import { MessageService } from 'src/app/services/message.service';
-import { MessageState } from "src/app/store/messages/reducers/message.reducer";
-import { loadMessages } from 'src/app/store/messages/actions/message.actions';
+import { MessageService } from 'src/app/message/services/message.service';
+import { MessageState } from "src/app/message/store/messages/reducers/message.reducer";
+import { loadMessages } from 'src/app/message/store/messages/actions/message.actions';
 
 /**
  * This class contains the effects that handle the side effects of actions related to messages,

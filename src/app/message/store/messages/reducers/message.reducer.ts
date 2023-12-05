@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 
 import * as MessageActions from '../actions/message.actions';
-import { IMessage } from 'src/app/interfaces/message.interface';
+import { IMessage } from 'src/app/message/interfaces/message.interface';
 
 /** MessageState - Interface representing the state structure for messages */
 export interface MessageState {

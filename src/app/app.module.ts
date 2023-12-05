@@ -23,14 +23,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home-page/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { MessagesPageComponent } from './components/messages-page/messages-page.component';
+import { HomeComponent } from './home-page/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MessagesPageComponent } from './message/components/messages-page/messages-page.component';
 import { firebaseConfig } from '../app/environments/environment';
-import { MessageEffects } from '../app/store/messages/effects/message.effects';
-import { messageReducer } from './store/messages/reducers/message.reducer';
-import { MessageAddDialogComponent } from './components/message-add-dialog/message-add-dialog.component';
-import { MessageDeleteDialogComponent } from './components/message-delete-dialog/message-delete-dialog.component';
+import { MessageEffects } from '../app/message/store/messages/effects/message.effects';
+import { messageReducer } from './message/store/messages/reducers/message.reducer';
+import { MessageAddDialogComponent } from './message/components/message-add-dialog/message-add-dialog.component';
+import { MessageDeleteDialogComponent } from './message/components/message-delete-dialog/message-delete-dialog.component';
 
 @NgModule({
   declarations: [

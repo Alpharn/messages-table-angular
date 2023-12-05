@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { IMessage } from 'src/app/interfaces/message.interface';
+import { IMessage } from 'src/app/message/interfaces/message.interface';
 
 /** Add message actions */
 export const addMessage = createAction(

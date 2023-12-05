@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { MessageState } from "src/app/store/messages/reducers/message.reducer";
+import { MessageState } from "src/app/message/store/messages/reducers/message.reducer";
 
 export const messageFeatureKey = 'messages';
 
