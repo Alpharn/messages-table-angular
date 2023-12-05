@@ -26,10 +26,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home-page/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MessagesPageComponent } from './components/messages-page/messages-page.component';
-import { MessageDialogComponent } from './components/message-dialog/message-dialog.component';
 import { firebaseConfig } from '../app/environments/environment';
 import { MessageEffects } from '../app/store/messages/effects/message.effects';
 import { messageReducer } from './store/messages/reducers/message.reducer';
+import { MessageAddDialogComponent } from './components/message-add-dialog/message-add-dialog.component';
+import { MessageDeleteDialogComponent } from './components/message-delete-dialog/message-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { messageReducer } from './store/messages/reducers/message.reducer';
     HomeComponent,
     NavbarComponent,
     MessagesPageComponent,
-    MessageDialogComponent
+    MessageAddDialogComponent,
+    MessageDeleteDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,8 @@ import { MatSort } from '@angular/material/sort';
 import { PageEvent, MatPaginator } from '@angular/material/paginator';
 
 import { PaginationService } from 'src/app/services/pagination.service';
-import { MessageDialogComponent } from '../message-dialog/message-dialog.component';
+import { MessageAddDialogComponent } from '../message-add-dialog/message-add-dialog.component';
+import { MessageDeleteDialogComponent } from '../message-delete-dialog/message-delete-dialog.component';
 import { IMessage } from "src/app/interfaces/message.interface";
 import { MessageState } from "src/app/store/messages/reducers/message.reducer";
 import { addMessage, loadMessages, deleteMessage } from 'src/app/store/messages/actions/message.actions';
@@ -67,16 +68,14 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
    * @param message The message object to be added or deleted; null if adding a new message.
    */
   openDialog(message: IMessage | null = null): void {
-
     let dialogRef;
-
     if (message) {
-      dialogRef = this.dialog.open(MessageDialogComponent, {
+      dialogRef = this.dialog.open(MessageDeleteDialogComponent, {
         width: '400px',
-        data: { message: message, isDeleteMode: true }
+        data: { message: message }
       });
     } else {
-      dialogRef = this.dialog.open(MessageDialogComponent, {
+      dialogRef = this.dialog.open(MessageAddDialogComponent, {
         width: '400px'
       });
     }

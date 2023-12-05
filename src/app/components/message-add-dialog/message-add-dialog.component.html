@@ -1,0 +1,31 @@
+<div class="dialog-container">
+  <mat-dialog-actions class="close-btn">
+    <button class="close-icon" mat-mini-fab mat-dialog-close cdkFocusInitial>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-dialog-actions>
+
+  <form class="dialog-form" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+    <h2 class="dialog-title" mat-dialog-title>
+      New Message
+    </h2>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name:</mat-label>
+      <input matInput placeholder="Name" formControlName="name" maxlength="100">
+      <mat-error *ngIf="messageForm.get('name')!.hasError('required')">Name is required</mat-error>
+      <mat-error *ngIf="messageForm.get('name')!.hasError('maxlength')">Name cannot be more than 100
+        characters</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Message:</mat-label>
+      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" minlength="1" maxlength="255"
+        placeholder="Message" formControlName="message">
+        </textarea>
+      <mat-error *ngIf="messageForm.get('message')!.hasError('required')">Message is required</mat-error>
+    </mat-form-field>
+    <mat-dialog-actions>
+      <button [disabled]="messageForm.invalid" class="submit-btn" mat-fab extended color="primary"
+        type="submit">Submit</button>
+    </mat-dialog-actions>
+  </form>
+</div>
