@@ -21,7 +21,7 @@ import { selectMessages, selectMessageLoading } from 'src/app/store/messages/sel
 export class MessagesPageComponent implements OnInit, OnDestroy {
 
   /** Columns displayed in the message table. */
-  displayedColumns: string[] = ['id', 'name', 'message', 'date', 'action'];
+  readonly displayedColumns: string[] = ['id', 'name', 'message', 'date', 'action'];
 
   /** ViewChild for sorting the table. */
   @ViewChild(MatSort, { static: true }) sort!: MatSort;

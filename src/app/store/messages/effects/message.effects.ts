@@ -24,7 +24,7 @@ export class MessageEffects {
   ) {}
   
   /** Effect to handle the addition of a new message */
-  public addMessage$ = createEffect(() => this.actions$.pipe(
+  addMessage$ = createEffect(() => this.actions$.pipe(
     ofType(MessageActions.addMessage),
     mergeMap(action => 
       this.messageService.addMessage(action.message).pipe(
@@ -36,7 +36,7 @@ export class MessageEffects {
   ));
   
   /** Effect to handle the loading of messages */
-  public loadMessages$ = createEffect(() => this.actions$.pipe(
+  loadMessages$ = createEffect(() => this.actions$.pipe(
     ofType(MessageActions.loadMessages),
     switchMap(() => this.messageService.getMessages().pipe(
       map(messages => MessageActions.loadMessagesSuccess({ messages })),
@@ -45,7 +45,7 @@ export class MessageEffects {
   ));
 
   /** Effect to handle the deletion of a message */
-  public deleteMessage$ = createEffect(() => this.actions$.pipe(
+  deleteMessage$ = createEffect(() => this.actions$.pipe(
     ofType(MessageActions.deleteMessage),
     switchMap(action => this.messageService.deleteMessage(action.id).pipe(
       map(() => MessageActions.deleteMessageSuccess({ id: action.id })),

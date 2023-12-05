@@ -40,13 +40,13 @@ export class MessageService {
    * @returns An Observable array of IMessage objects.
    */
   getMessages() {
-    const q = query(this.messageCollection, orderBy('date', 'desc'));
-    return from(getDocs(q)).pipe(
+    const messagesQuery = query(this.messageCollection, orderBy('date', 'desc'));
+    return from(getDocs(messagesQuery)).pipe(
       map(querySnapshot => {
         return querySnapshot.docs.map(docSnapshot => {
           const data = docSnapshot.data() as IMessage;
-          if (data.CreatedAt instanceof Timestamp) {
-            const date = data.CreatedAt.toDate();
+          if (data.createdAt instanceof Timestamp) {
+            const date = data.createdAt.toDate();
             return { ...data, id: docSnapshot.id, date };
           }
           return { ...data, id: docSnapshot.id };

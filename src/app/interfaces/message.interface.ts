@@ -3,5 +3,5 @@ export interface IMessage {
   id?: string;
   name: string;
   message: string;
-  CreatedAt: Date;
+  createdAt: Date;
 }
