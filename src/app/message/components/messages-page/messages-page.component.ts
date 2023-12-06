@@ -13,6 +13,7 @@ import { IMessage } from "src/app/message/interfaces/message.interface";
 import { MessageState } from "src/app/message/store/messages/reducers/message.reducer";
 import { addMessage, loadMessages, deleteMessage } from 'src/app/message/store/messages/actions/message.actions';
 import { selectMessages, selectMessageLoading } from 'src/app/message/store/messages/selectors/message.selectors';
+import { DIALOG_WIDTH } from "src/app/message/constants/constants";
 
 @Component({
   selector: 'app-messages-page',
@@ -43,7 +44,7 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
     private dialog: MatDialog,
     private store: Store<MessageState>,
     private paginationService: PaginationService
-  ) { }
+  ) {}
 
   /**
    * Dispatches action to load messages and sets up subscription to message updates.
@@ -62,31 +63,33 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
       });
   }
 
+  /** Opens a dialog for adding a new message. */
+  openAddMessageDialog(): void {
+    const dialogRef = this.dialog.open(MessageAddDialogComponent, {
+      width: DIALOG_WIDTH
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.store.dispatch(addMessage({ message: result.data }));
+      }
+    });
+  }
+
   /**
-   * Opens a dialog for adding or deleting a message.
+   * Opens a dialog for deleting a specific message.
    * 
-   * @param message The message object to be added or deleted; null if adding a new message.
+   * @param message The message object to be deleted.
    */
-  openDialog(message: IMessage | null = null): void {
-    let dialogRef;
-    if (message) {
-      dialogRef = this.dialog.open(MessageDeleteDialogComponent, {
-        width: '400px',
-        data: { message: message }
-      });
-    } else {
-      dialogRef = this.dialog.open(MessageAddDialogComponent, {
-        width: '400px'
-      });
-    }
+  openDeleteMessageDialog(message: IMessage): void {
+    const dialogRef = this.dialog.open(MessageDeleteDialogComponent, {
+      width: DIALOG_WIDTH,
+      data: { message: message }
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        if (result.type === 'create') {
-          this.store.dispatch(addMessage({ message: result.data }));
-        } else if (result.type === 'delete') {
-          this.store.dispatch(deleteMessage({ id: result.data.id }));
-        }
+        this.store.dispatch(deleteMessage({ id: result.data.id }));
       }
     });
   }
