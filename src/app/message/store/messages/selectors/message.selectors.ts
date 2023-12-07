@@ -27,3 +27,9 @@ export const selectMessageError = createSelector(
   selectMessageState,
   (state: MessageState) => state.error
 );
+
+/** Selector to determine if a message submission is currently in progress. */
+export const selectIsSubmitting = createSelector(
+  selectMessageState,
+  (state: MessageState) => state.isSubmitting
+);

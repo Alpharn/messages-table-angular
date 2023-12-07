@@ -7,12 +7,14 @@ import { IMessage } from 'src/app/message/interfaces/message.interface';
 export interface MessageState {
   messages: IMessage[];
   loading: boolean;
+  isSubmitting: boolean;
   error: string | null;
 }
 
 export const initialState: MessageState = {
   messages: [],
   loading: false,
+  isSubmitting: false,
   error: null
 };
 
@@ -22,15 +24,18 @@ export const messageReducer = createReducer(
   on(MessageActions.addMessage, state => ({
     ...state,
     loading: true,
+    isSubmitting: true,
     error: null
   })),
   on(MessageActions.addMessageSuccess, (state) => ({
     ...state,
+    isSubmitting: false,
     loading: false
   })),
   on(MessageActions.addMessageFailure, (state, { error }) => ({
     ...state,
     loading: false,
+    isSubmitting: false,
     error
   })),
   on(MessageActions.loadMessages, state => ({

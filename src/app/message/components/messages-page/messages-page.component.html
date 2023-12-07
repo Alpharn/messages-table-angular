@@ -6,6 +6,10 @@
     <mat-icon iconPositionEnd class="add-icon">add</mat-icon>
   </button>
 
+  <div class="spinner-container"  *ngIf="(isLoading$ | async) || (isSubmitting$ | async)">
+    <mat-spinner diameter="80"></mat-spinner>
+  </div>
+
   <div class="table-container">
     <!-- Material Table to Display Messages -->
     <mat-table 
@@ -56,7 +60,6 @@
     <ng-container *ngIf="!(isLoading$ | async)">
       <h2 class="no-msg" *ngIf="messages.data.length === 0">There's no messages yet</h2>
     </ng-container>
-    <mat-spinner class="spinner" *ngIf="isLoading$ | async" diameter="80"></mat-spinner>
 
     <mat-paginator 
       (page)="updateRoute($event)" 

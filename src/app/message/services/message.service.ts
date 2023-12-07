@@ -31,7 +31,7 @@ export class MessageService {
    */
   addMessage(message: IMessage) {
     const { id, ...messageData } = message;
-    return from(addDoc(collection(this.firestore, 'messages'), messageData));
+    return from(addDoc(this.messageCollection, messageData));
   }
 
   /**
