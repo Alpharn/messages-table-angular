@@ -12,7 +12,7 @@ import { MessageDeleteDialogComponent } from '../message-delete-dialog/message-d
 import { IMessage } from "src/app/message/interfaces/message.interface";
 import { MessageState } from "src/app/message/store/messages/reducers/message.reducer";
 import { addMessage, loadMessages, deleteMessage } from 'src/app/message/store/messages/actions/message.actions';
-import { selectMessages, selectMessageLoading, selectIsSubmitting } from 'src/app/message/store/messages/selectors/message.selectors';
+import { selectMessages, selectMessageLoading } from 'src/app/message/store/messages/selectors/message.selectors';
 import { DIALOG_WIDTH } from "src/app/message/constants/constants";
 
 @Component({
@@ -36,9 +36,6 @@ export class MessagesPageComponent implements OnInit, OnDestroy {
 
   /** Observable indicating if messages are being loaded. */
   isLoading$: Observable<boolean> = this.store.select(selectMessageLoading);
-  
-  /** Observable indicating if a message submission is currently in progress. */
-  isSubmitting$: Observable<boolean> = this.store.select(selectIsSubmitting);
 
   /** Subject used to unsubscribe from observables in ngOnDestroy. */
   private destroy$: Subject<void> = new Subject<void>;

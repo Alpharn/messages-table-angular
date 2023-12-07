@@ -6,7 +6,7 @@
     <mat-icon iconPositionEnd class="add-icon">add</mat-icon>
   </button>
 
-  <div class="spinner-container"  *ngIf="(isLoading$ | async) || (isSubmitting$ | async)">
+  <div class="spinner-container"  *ngIf="(isLoading$ | async)">
     <mat-spinner diameter="80"></mat-spinner>
   </div>
 
